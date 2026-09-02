@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Book Finder</title>
+
+    <link rel="stylesheet" href="02.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <header class="header">
+        <h1>📚 AI Book Finder</h1>
+        <p>ค้นหาและบันทึกหนังสือที่สนใจ</p>
+    </header>
+
+
+    <!-- Search -->
+    <section class="search-box">
+
+        <label for="keyword">คำค้น</label>
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="keyword"
+                placeholder="เช่น JavaScript, Harry Potter..."
+            >
+
+            <select id="searchType">
+                <option value="all">ค้นหาทั้งหมด</option>
+                <option value="title">ชื่อหนังสือ</option>
+                <option value="author">ชื่อผู้แต่ง</option>
+            </select>
+
+        </div>
+
+        <button id="searchBtn">
+            🔍 ค้นหา
+        </button>
+
+    </section>
+
+
+    <!-- Empty State -->
+    <section id="emptyState" class="state empty-state">
+        <p>📖 กรอกคำค้นเพื่อเริ่มค้นหาหนังสือ</p>
+    </section>
+
+
+    <!-- Loading -->
+    <section id="loadingState" class="state loading-state hidden">
+
+        <div class="spinner"></div>
+
+        <p>กำลังค้นหาหนังสือ...</p>
+
+    </section>
+
+
+    <!-- Error -->
+    <section id="errorState" class="state error-state hidden">
+
+        <p id="errorMessage">
+            ไม่สามารถค้นหาหนังสือได้
+        </p>
+
+    </section>
+
+
+    <!-- Results -->
+    <section id="resultSection" class="hidden">
+
+        <div class="result-header">
+
+            <h2>ผลการค้นหา</h2>
+
+            <p>
+                พบทั้งหมด
+                <strong id="resultCount">0</strong>
+                รายการ
+            </p>
+
+        </div>
+
+
+        <!-- Filter -->
+        <div class="filter-box">
+
+            <div>
+                <label for="yearFilter">
+                    กรองตามปี
+                </label>
+
+                <select id="yearFilter">
+
+                    <option value="all">
+                        ทุกปี
+                    </option>
+
+                    <option value="before2000">
+                        ก่อนปี 2000
+                    </option>
+
+                    <option value="2000-2010">
+                        2000 - 2010
+                    </option>
+
+                    <option value="2011-2020">
+                        2011 - 2020
+                    </option>
+
+                    <option value="after2020">
+                        2021 เป็นต้นไป
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+                <label for="sortSelect">
+                    เรียงตาม
+                </label>
+
+                <select id="sortSelect">
+
+                    <option value="title-asc">
+                        ชื่อหนังสือ A-Z
+                    </option>
+
+                    <option value="title-desc">
+                        ชื่อหนังสือ Z-A
+                    </option>
+
+                    <option value="year-desc">
+                        ปีใหม่ → เก่า
+                    </option>
+
+                    <option value="year-asc">
+                        ปีเก่า → ใหม่
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div id="booksGrid" class="books-grid"></div>
+
+    </section>
+
+
+    <!-- Favorites -->
+    <section class="favorites-section">
+
+        <div class="favorites-header">
+
+            <h2>❤️ รายการโปรด</h2>
+
+            <span id="favoriteCount">
+                0 รายการ
+            </span>
+
+        </div>
+
+        <div
+            id="favoritesGrid"
+            class="books-grid"
+        ></div>
+
+        <p
+            id="favoriteEmpty"
+            class="favorite-empty"
+        >
+            ยังไม่มีหนังสือในรายการโปรด
+        </p>
+
+    </section>
+
+
+    <footer>
+        ข้อมูลหนังสือจาก Open Library
+    </footer>
+
+</main>
+
+
+<script src="02.js"></script>
+
+</body>
+</html>
