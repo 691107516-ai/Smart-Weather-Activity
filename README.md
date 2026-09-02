@@ -1,1 +1,1 @@
-# Workshop
+# Smart Weather Activity
