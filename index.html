@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Weather Activity</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌤️ Smart Weather Activity</h1>
+    <p>เลือกจังหวัดเพื่อดูสภาพอากาศและคำแนะนำกิจกรรม</p>
+
+    <div class="form-group">
+      <label for="provinceSelect">เลือกจังหวัด:</label>
+      <select id="provinceSelect">
+        <option value="">-- กรุณาเลือกจังหวัด --</option>
+        <option value="13.7563,100.5018">กรุงเทพมหานคร</option>
+        <option value="18.7883,98.9853">เชียงใหม่</option>
+        <option value="16.4322,102.8236">ขอนแก่น</option>
+        <option value="13.3611,100.9847">ชลบุรี</option>
+        <option value="7.8804,98.3923">ภูเก็ต</option>
+      </select>
+      <button id="checkBtn">ตรวจสอบอากาศ</button>
+    </div>
+
+    <div id="loadingState" class="state hidden">⏳ กำลังโหลดข้อมูล...</div>
+    <div id="errorState" class="state hidden">❌ เกิดข้อผิดพลาด กรุณาลองใหม่</div>
+    <div id="emptyState" class="state">👆 กรุณาเลือกจังหวัดและกดตรวจสอบอากาศ</div>
+
+    <div id="resultCard" class="card hidden">
+      <h2 id="cityName"></h2>
+      <p id="checkTime"></p>
+      <div class="weather-grid">
+        <div class="weather-item">🌡️ อุณหภูมิ: <span id="temp"></span> °C</div>
+        <div class="weather-item">💧 ความชื้น: <span id="humidity"></span> %</div>
+        <div class="weather-item">💨 ความเร็วลม: <span id="wind"></span> km/h</div>
+        <div class="weather-item">🌧️ โอกาสฝนตก: <span id="rain"></span> %</div>
+        <div class="weather-item">☀️ ดัชนี UV: <span id="uv"></span></div>
+      </div>
+      <div id="recommendation" class="recommendation"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
